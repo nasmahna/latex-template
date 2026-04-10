@@ -1,0 +1,138 @@
+%------------------------
+% Latex CV Template for CV or Resume 
+% Author: Nasmah Nur Amiroh
+%------------------------
+
+\documentclass[11pt, a4paper]{article} % Set base font size to 11pt
+
+% --- PACKAGES ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% Use the changepage package for the custom 'subs' environment
+\usepackage{changepage}
+% Adjust margins for a professional look
+\usepackage[left=1in, right=1in, top=0.8in, bottom=0.8in]{geometry}
+\usepackage{url} % For links
+\usepackage{titlesec} % For custom section headings
+\usepackage{enumitem} % For customizing lists
+\usepackage{fontawesome5} % For icons like email, phone, LinkedIn
+\usepackage{hyperref} % To make links clickable (must be last package loaded)
+
+% --- CONFIGURATION & COMMANDS ---
+
+% Remove page number
+\pagestyle{empty}
+
+% 1. Custom List Formatting (no space between items)
+\setlist{noitemsep}
+
+% 2. Custom Section Title Formatting using \small
+\titleformat{\section}
+  {\small\bfseries} % Smaller size
+  {} % No section number
+  {0pt} % Separation
+  {\uppercase} % Uppercase the title text
+  [\titlerule] % Horizontal rule after the title
+\titlespacing*{\section}{0pt}{\baselineskip}{0.7\baselineskip}
+
+% 3. Custom Indenting Environment (Requires changepage package)
+\newenvironment{subs}
+  {\begin{adjustwidth}{2em}{0pt} \footnotesize} % <-- CHANGED: Added \footnotesize here
+  {\end{adjustwidth}}
+
+% Command for Subheadings (Job Title, Degree, etc.)
+% Original: \newcommand{\subheading}[2]{% \textbf{#1} \hfill \emph{#2} \\ }
+\newcommand{\subheading}[2]{%
+    \footnotesize\textbf{#1} \hfill \emph{#2} \\ % <-- CHANGED: Used \footnotesize
+}
+
+% Command for Job/Project Details (Making top line \footnotesize)
+\newcommand{\jobdetails}[3]{%
+    \footnotesize \textbf{#1} \hfill #2 \\ % Role / project and secondary detail (e.g. location or tech)
+    \emph{\small #3} \\ % Date range or link / extra detail
+}
+
+% --- DOCUMENT START ---
+\begin{document}
+
+% ===================================
+% 1. HEADER (Your Name and Contact Info)
+% ===================================
+\begin{center}
+    \textbf{\Large John Doe}\\[3pt] % Name
+    Indonesia | \href{mailto:john@gmail.com}{Email} | \href{https://www.linkedin.com/in/john-doe/}{LinkedIn} | (+1) 234-567-890 % Contact info
+\end{center}
+
+% ===================================
+% 2. SUMMARY / OBJECTIVE (Optional)
+% ===================================
+\section{SUMMARY}
+\footnotesize % <-- ADDED: Applies \footnotesize to the entire summary text
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+\normalsize % <-- ADDED: Switches back to the normal font size (11pt) before the next section title
+
+% ===================================
+% 3. EXPERIENCE
+% ===================================
+\section{EXPERIENCE}
+
+% Using \begin{subs} to indent the details below the title
+\begin{subs}
+    \jobdetails{Software Engineer}{Sweden, Stockholm}{June 2026 -- Present}
+    \begin{itemize}
+        \item abcadfafd
+        \item asdasdasa 20\%.
+        \item 30\% reduction in average page load time.
+    \end{itemize}
+\end{subs}    
+
+% ===================================
+% 4. EDUCATION
+% ===================================
+\section{EDUCATION}
+\begin{subs}
+\subheading{Master of Computer Science}{ETH Zurich, Switzerland}
+    GPA: 4.0/4.0 
+\end{subs}
+\begin{subs}
+\subheading{Bachelor of Computer Science}{ETH Zurich, Switzerland}
+    GPA: 3.8/4.0 
+\end{subs}
+
+% ===================================
+% 5. SKILLS
+% ===================================
+\section{SKILLS}
+
+\begin{subs}
+    \textbf{Programming Languages:} Python, Java, Groovy, JSON, JavaScript, SQL \\
+    \textbf{Frameworks/Libraries:} Karate, Flask, Django, TensorFlow, Node.js \\
+    \textbf{Tools \& Platforms:} Cursor, VS Code, AI-related tools, Git, Docker, AWS, Jenkins, TeamCity, Microsoft Office \\
+    \textbf{Soft Skills:} Problem-Solving
+\end{subs}
+
+% ===================================
+% 6. PROJECTS (Optional)
+% ===================================
+\section{PROJECTS}
+
+\begin{subs}
+    \jobdetails{Personal Portfolio Website}{Technologies Used (e.g., Java)}{Link to Project (e.g., \url{https://yourprojectlink.com})}
+    \begin{itemize}
+        \item Designed and deployed a responsive personal website to showcase previous work and skills.
+        \item Implemented continuous deployment pipeline using GitHub Actions.
+    \end{itemize}
+\end{subs}
+\begin{subs}
+    \jobdetails{Some Website}{Technologies Used (e.g., Python)}{Link to Project (e.g., \url{https://yourprojectlink.com})}
+    \begin{itemize}
+        \item Designed and deployed a responsive personal website to showcase previous work and skills.
+        \item Implemented continuous deployment pipeline using GitHub Actions.
+    \end{itemize}
+\end{subs}
+
+% --- DOCUMENT END ---
+\end{document}
